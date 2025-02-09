@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard Variable', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .navbar {
+            background-color: #00ac58;
+            padding: 17px 20px;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .left a {
+            text-decoration: none;
+            color: white;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .navbar .category-icon {
+            height: 25px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .category {
+            font-size: 14px;
+            color: #00ac58;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+        .author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .divider {
+            border-bottom: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 9px;
+            word-break: break-word;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar a {
+            padding: 15px 0;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar a:last-child {
+            border-bottom: none;
+        }
+        .sidebar-close {
+            text-align: right;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categoryIcon = document.querySelector(".category-icon");
+            const sidebar = document.querySelector(".sidebar");
+            const closeSidebar = document.querySelector(".sidebar-close");
+            const clubTitle = document.querySelector(".club-title");
+    
+            categoryIcon.addEventListener("click", function() {
+                sidebar.classList.toggle("open");
+            });
+    
+            closeSidebar.addEventListener("click", function() {
+                sidebar.classList.remove("open");
+            });
+    
+            // "드리머스클럽" 클릭 및 터치 이벤트 추가
+            clubTitle.addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
+            clubTitle.addEventListener("touchstart", function() {
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <img src="naverlogo.png" alt="네이버 로고">
+            <a href="index.html" class="club-title">드리머스클럽</a>
+        </div>        
+        <div class="right">
+            <img src="search.png" alt="검색 아이콘">
+            <img src="category.png" alt="카테고리 아이콘" class="category-icon">
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-close">✖</div>
+            <a href="index.html">'드리머스클럽' 홈</a>
+            <a href="notice.html">총공지</a>
+            <a href="story.html">세계관</a>
+            <a href="profile.html">프로필 양식</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="category">전체공지</div>
+        <div class="title">[드리머스 클럽 활동 규칙]</div>
+        <div class="author">
+            <img src="profile.png" alt="작성자 프로필">
+            운영자 · 2025.02.07 00:00 · 조회 40
+        </div>
+        <div class="divider"></div>
+        <div class="content">
+            <br><br>
+            [드리머스 클럽 내부 게시글 규칙]<br><br>
+            안녕하세요. 운영자입니다. 본 카페 개설 목적에 맞지 않는 글로 인해 본질이 흐려질까 하여 몇 가지 규칙을 세워 공지합니다.<br><br><br>
+            - 꿈내용 외 광고글 게시 금지<br><br>
+            - 꿈을 꾸게 되지 않는 순간 탈퇴 요망<br><br>
+            - 신상이 특정될 내용 게시 금지<br><br><br>
+            *적발 시 영구 밴*<br><br>
+        </div>
+    </div>
+</body>
+</html>

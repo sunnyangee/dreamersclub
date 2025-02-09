@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard Variable', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .navbar {
+            background-color: #00ac58;
+            padding: 17px 20px;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .left a {
+            text-decoration: none;
+            color: white;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .navbar .category-icon {
+            height: 25px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .category {
+            font-size: 14px;
+            color: #00ac58;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+        .author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .divider {
+            border-bottom: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 9px;
+            word-break: break-word;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar a {
+            padding: 15px 0;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar a:last-child {
+            border-bottom: none;
+        }
+        .sidebar-close {
+            text-align: right;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categoryIcon = document.querySelector(".category-icon");
+            const sidebar = document.querySelector(".sidebar");
+            const closeSidebar = document.querySelector(".sidebar-close");
+            const clubTitle = document.querySelector(".club-title");
+    
+            categoryIcon.addEventListener("click", function() {
+                sidebar.classList.toggle("open");
+            });
+    
+            closeSidebar.addEventListener("click", function() {
+                sidebar.classList.remove("open");
+            });
+    
+            // "드리머스클럽" 클릭 및 터치 이벤트 추가
+            clubTitle.addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
+            clubTitle.addEventListener("touchstart", function() {
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <img src="naverlogo.png" alt="네이버 로고">
+            <a href="index.html" class="club-title">드리머스클럽</a>
+        </div>
+        <div class="right">
+            <img src="search.png" alt="검색 아이콘">
+            <img src="category.png" alt="카테고리 아이콘" class="category-icon">
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-close">✖</div>
+            <a href="index.html">'드리머스클럽' 홈</a>
+            <a href="notice.html">총공지</a>
+            <a href="story.html">세계관</a>
+            <a href="profile.html">프로필 양식</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="category">전체공지</div>
+        <div class="title">꿈이란 무엇인가?</div>
+        <div class="author">
+            <img src="profile.png" alt="작성자 프로필">
+            운영자 · 2025.02.07 00:20 · 조회 25
+        </div>
+        <div class="divider"></div>
+        <div class="content">
+            <br><br>
+            [세계관]<br><br>
+             나는 매일 밤 꿈을 꿉니다. 아침에 눈을 떴을 때 꿈을 기억하든, 그렇지 못하든요. 꿈을 꾸는 '나'는 태어난 날, 사는 곳, 하는 일을 포함해 살아온 환경이 모두 다른 누군가와 함께 세계를 구한 적도 있습니다. 뭐, 보통은 카페나 학교, 직장 따위에서 시시콜콜한 수다를 떨다 눈을 뜨기 다반사지만요. <br><br>
+             꿈을, 그리고 꿈에서 만나는 사람들의 얼굴과 이름을 인식했을 즈음, 그렇게 '내'가 '너'를 매일 밤 꿈에서 만난다는 사실을 깨달았을 즈음, '우리'는 각자의 경로를 통해 인터넷 카페 <드리머스 클럽>에 가입했습니다. 우연인지 필연인지, 그곳에는 나와 같은 사람들, 그러니까 매일 밤 꿈에서 같은 사람을 만난 사람들이 모여 경험을 나누는 자리였습니다.<br><br>
+             나는 이다지도 환상적인 경험을 선사받은 사람이, 이 세계에 나 혼자가 아니라는 사실에 안도하면서도 왠지 석연치 않은 기분을 느낍니다.<br><br>
+             "어쩌면, 이 카페에 있는 사람들이 매일 밤 내 꿈에 나타나는 사람들이 아닐까?"<br><br>
+             그렇다면, 이 연속된 꿈의 주인은 누구일까? <br><br>
+             불쑥 고개를 든, 그리고 해소할 방법이 없는 의문을 끌어안은 채 잠에 든 우리는 그날 밤, 아주 익숙한 누군가가 무참히 살해당하는 꿈을 꾸었습니다. 공포스럽다기보다 몹시도 애석하고 안타까운 마음으로. 심상찮은 꿈자리에 해몽이라도 검색해 볼까, 핸드폰을 켠 나는.......<br><br>
+             '<드리머스 클럽> 제1회 정모 공지'를 확인합니다. 카페지기인 문선도로부터 게시된 공지글이 잠잠하던 카페를 들썩이게 만들고 있었습니다. <br><br>
+             당신을 꿈에서 만난 적 있는 기분이 듭니다.
+        </div>
+    </div>
+</body>
+</html>

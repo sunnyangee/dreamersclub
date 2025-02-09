@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드리머스클럽</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard Variable', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+        .header-image {
+            width: 100%;
+            height: 180px;
+            background: url('header.png') no-repeat center center/cover;
+            position: relative;
+        }
+        .header-image .naver-logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 30px;
+        }
+        .navbar {
+            background-color: #00ac58;
+            padding: 17px 20px;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            border-radius: 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .navbar .logo {
+            height: 32px;
+            margin-right: 10px;
+        }
+        .navbar div {
+            margin-left: 5px;
+        }
+        .member-info {
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: 2px;
+            color: white;
+        }
+        .container {
+            width: 95%;
+            max-width: 450px;
+            margin: 15px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .menu {
+            display: flex;
+            justify-content: flex-start;
+            padding: 10px 0;
+            border-radius: 5px;
+            background: none;
+            gap: 5px;
+        }
+        .menu button {
+            font-size: 14px;
+            cursor: pointer;
+            padding: 10px 15px;
+            border: 1px solid #d1d1d1;
+            background: #ffffff;
+            border-radius: 25px;
+            box-shadow: none;
+            color: black;
+            font-weight: bold;
+            min-width: 80px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .menu button.active {
+            background: #00ac58;
+            color: white;
+        }
+        .post {
+            display: block;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .post-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .post-meta {
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = document.querySelectorAll(".menu button");
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+                });
+            });
+
+            // 게시글 클릭 시 이동할 페이지 설정
+            const posts = document.querySelectorAll(".post-title");
+            posts.forEach(post => {
+                post.addEventListener("click", function() {
+                    const titleText = this.innerText;
+                    if (titleText.includes("꿈이란")) {
+                        window.location.href = "story.html"; // 세계관 클릭 시 이동
+                    } else if (titleText.includes("신청서")) {
+                        window.location.href = "profile.html"; // 포켓몬 조커 클릭 시 이동
+                    } else if (titleText.includes("정모 공지")) {
+                        window.location.href = "notice.html"; // 총공지 클릭 시 이동
+                    } else if (titleText.includes("활동 규칙")) {
+                        window.location.href = "rule.html"; // 총공지 클릭 시 이동
+                    }
+                });
+                post.addEventListener("touchstart", function() {
+                    const titleText = this.innerText;
+                    if (titleText.includes("꿈이란")) {
+                        window.location.href = "story.html";
+                    } else if (titleText.includes("신청서")) {
+                        window.location.href = "profile.html";
+                    } else if (titleText.includes("정모 공지")) {
+                        window.location.href = "notice.html";
+                    } else if (titleText.includes("활동 규칙")) {
+                        window.location.href = "rule.html"; // 총공지 클릭 시 이동
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header-image">
+        <img src="naverlogo.png" alt="네이버 로고" class="naver-logo">
+    </div>
+    
+    <div class="navbar">
+        <img src="profile.png" alt="드리머스클럽 로고" class="logo">
+        <div>
+            <div>드리머스 클럽</div>
+            <div class="member-info">멤버 24</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="menu">
+            <button>전체</button>
+            <button>MY구독</button>
+            <button>전체공지</button>
+        </div>
+        <div class="post">
+            <div class="post-title">[드리머스 클럽 제1회 정모 공지]</div>
+            <div class="post-meta">운영자 | 00:57 | 조회 21 | 댓글 0</div>
+        </div>
+        <div class="post">
+            <div class="post-title">[드리머스 클럽 정모 신청서 양식]</div>
+            <div class="post-meta">운영자 | 25.02.07 | 조회 68 | 댓글 0</div>
+        </div>
+        <div class="post">
+            <div class="post-title">꿈이란 무엇인가?</div>
+            <div class="post-meta">운영자 | 25.02.07 | 조회 25 | 댓글 0</div>
+        </div>
+        <div class="post">
+            <div class="post-title">[드리머스 클럽 활동 규칙]</div>
+            <div class="post-meta">운영자 | 25.02.07 | 조회 40 | 댓글 0</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>메인 페이지</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow: hidden;
+            background: black;
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            touch-action: none;
+        }
+
+        /* 배경 이미지가 일렁이는 효과 */
+        .background-waves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 110vw; /* 10% 더 확대 */
+            height: 110vh; /* 10% 더 확대 */
+            background: url('background.jpeg') no-repeat center center/cover;
+            animation: waveMotion 10s infinite ease-in-out;
+            transform-origin: center;
+            filter: brightness(0.8);
+        }
+
+        @keyframes waveMotion {
+            0% { transform: scale(1.1) rotate(0deg); }
+            50% { transform: scale(1.12) rotate(2deg); }
+            100% { transform: scale(1.1) rotate(0deg); }
+        }
+
+        /* 작은 발광하는 원 */
+        .floating-bubble {
+            position: absolute;
+            width: 3.5px;
+            height: 3.5px;
+            background: rgba(255, 255, 255, 1);
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 1);
+            animation: floatBubbles 5s infinite alternate ease-in-out;
+        }
+
+        /* 원이 떠다니는 애니메이션 */
+        @keyframes floatBubbles {
+            0% { transform: translateY(0) translateX(0); opacity: 0.6; }
+            50% { transform: translateY(-15px) translateX(10px); opacity: 1; }
+            100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 배경 이미지 -->
+    <div class="background-waves"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 작은 원들 생성
+            for (let i = 0; i < 50; i++) {
+                let bubble = document.createElement("div");
+                bubble.classList.add("floating-bubble");
+
+                // 모바일 대응 랜덤 위치 조정
+                let posX = Math.random() * window.innerWidth;
+                let posY = Math.random() * window.innerHeight;
+                bubble.style.left = `${posX}px`;
+                bubble.style.top = `${posY}px`;
+
+                // 크기 및 애니메이션 속도 설정
+                let size = Math.random() * 3 + 2;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.animationDuration = `${Math.random() * 3 + 4}s`;
+
+                document.body.appendChild(bubble);
+            }
+
+            // 화면 클릭 또는 터치 시 실행
+            document.body.addEventListener("click", startTransition);
+            document.body.addEventListener("touchstart", startTransition, { passive: true });
+        });
+
+        function startTransition() {
+            // 팝업 알림 띄우기
+            alert("에?@.₩₩&₩러?&₩\n\n꿈 내부에서 깨어납니다.\n현실에 접속합니다.");
+
+            // 3초 후 index.html로 이동
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

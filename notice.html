@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <style>
+        body {
+            font-family: 'Pretendard Variable', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .navbar {
+            background-color: #00ac58;
+            padding: 17px 20px;
+            color: white;
+            text-align: left;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .navbar .left {
+            display: flex;
+            align-items: center;
+        }
+        .navbar .left a {
+            text-decoration: none;
+            color: white;
+        }
+        .navbar .right {
+            display: flex;
+            align-items: center;
+        }
+        .navbar img {
+            height: 20px;
+            margin-right: 10px;
+        }
+        .navbar .category-icon {
+            height: 25px;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .category {
+            font-size: 14px;
+            color: #00ac58;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .author {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+        .author img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .divider {
+            border-bottom: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .content {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 9px;
+            word-break: break-word;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -250px;
+            width: 250px;
+            height: 100%;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar a {
+            padding: 15px 0;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            border-bottom: 1px solid #ddd;
+        }
+        .sidebar a:last-child {
+            border-bottom: none;
+        }
+        .sidebar-close {
+            text-align: right;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+        .sidebar.open {
+            right: 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const categoryIcon = document.querySelector(".category-icon");
+            const sidebar = document.querySelector(".sidebar");
+            const closeSidebar = document.querySelector(".sidebar-close");
+            const clubTitle = document.querySelector(".club-title");
+    
+            categoryIcon.addEventListener("click", function() {
+                sidebar.classList.toggle("open");
+            });
+    
+            closeSidebar.addEventListener("click", function() {
+                sidebar.classList.remove("open");
+            });
+    
+            // "드리머스클럽" 클릭 및 터치 이벤트 추가
+            clubTitle.addEventListener("click", function() {
+                window.location.href = "index.html";
+            });
+            clubTitle.addEventListener("touchstart", function() {
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">
+            <img src="naverlogo.png" alt="네이버 로고">
+            <a href="index.html" class="club-title">드리머스클럽</a>
+        </div> 
+        <div class="right">
+            <img src="search.png" alt="검색 아이콘">
+            <img src="category.png" alt="카테고리 아이콘" class="category-icon">
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-close">✖</div>
+            <a href="index.html">'드리머스클럽' 홈</a>
+            <a href="notice.html">총공지</a>
+            <a href="story.html">세계관</a>
+            <a href="profile.html">프로필 양식</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="category">전체공지</div>
+        <div class="title">[드리머스 클럽 제1회 정모 공지]</div>
+        <div class="author">
+            <img src="profile.png" alt="작성자 프로필">
+            운영자 · 2025.02.08 00:57 · 조회 21
+        </div>
+        <div class="divider"></div>
+        <div class="content">
+            <br><br>
+            [총공지]<br><br>
+            1. 우리 모두는 매일 같은 꿈에서 서로를 마주합니다. 따라서 실제 만난 적이 없는 관계라도 구면으로 상정합니다.<br><br>
+            2. MPC, NPC 미포함 최대 20명의 인원을 수용합니다. 다양한 캐릭터 디자인을 지향하며, 접수된 프로필의 수에 따라 최대 인원이 변경될 수 있으나 변경된 인원 또한 22명을 넘지 않을 예정입니다.<br><br>
+            2-2. 러닝 기간 중 SNS(트위터, 카카오톡, 디스코드 등)에서 캐릭터가 유출될 만한 요소, 캐릭터 및 오너 유추, 공개하는 등의 행위를 금지합니다. 이는 커뮤니티의 러닝 여부부터 이를 유추할 수 있는 발언까지 모두 포함합니다. 발각될 경우 해당 캐릭터를 즉시 하차 처리합니다.<br><br>
+            3. 필수 참여 단체 스토리 진행은 22시 혹은 그 이후부터 (MPC 계정으로 시간 공지) 진행될 예정입니다. 또한 스토리 진행 도중 스진계를 언급한 행동만을 인정합니다. 비밀 댓글과 독백 및 개인 대화는 허용하나 스토리 진행에 차질이 갈 경우 제지할 수 있습니다.<br><br>
+            3-2. 러너의 행동에 따라 엔딩이 바뀔 수 있으며, 경우에 따라 몰살 엔딩이 될 수도 있습니다.<br><br>
+            4. 모든 컨택은 운영진을 포함해 진행해 주시기 바랍니다. 컨택이 필요할 경우 운영진에게 일대일 넣어 주시면 됩니다.<br><br>
+            5. 러닝 중 성사와 일대일을 금지하며, 메타발언 및 과도한 개그를 금지합니다. 공지를 전부 읽으셨다면 프로필 내부에 캐릭터 테마곡을 하나 삽입해 주세요. 스토리 진행 중 이모티콘 및 초성 사용, 물결표와 세미콜론을 금지합니다.<br><br>
+            6. 본 커뮤니티는 독자적인 운영 방식을 가지고 있습니다. 자세한 내용은 합격자 발표가 끝난 이후 공지할 예정이며, 이 방식에 있어 러너의 활동량이 가장 중요하므로 일정 모두 참여 가능한 러너만 접수해 주세요. 따라서 17시간 이상 활동이 없는 캐릭터는 하차 처리됩니다.<br><br>
+            7. 여기까지 읽으셨다면 프로필 접수 후 공지방 내 프로필 설정을 캐릭터의 카페 내 닉네임으로 바꿔 주세요.<br><br>
+            8. 프로필 내부 설정과 비밀 설정이 스토리 진행에서 활용될 수 있다는 점 양지해 주시기 바랍니다. 원하지 않을 경우 접수 후 운영진 일대일로 문의 넣어 주세요. 별도의 컨택 없이 러닝할 경우 본 공지에 모두 동의한 것으로 간주하며 어기는 경우 하차 처리합니다.<br><br>
+        </div>
+    </div>
+</body>
+</html>
